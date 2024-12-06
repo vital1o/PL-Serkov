@@ -1,7 +1,7 @@
-import numpy as np
+import random
 
 N = int(input("Введите значение N: ")) 
-A = np.random.randint(-10, 10, size=(N, N))
+A = [[random.randint(-10, 10) for _ in range(N)] for _ in range(N)]
 
 sum_positive = 0
 count_positive = 0
@@ -13,6 +13,7 @@ for i in range(N):
             count_positive += 1  
 
 print("Матрица A:")
-print(A)
+for row in A:
+    print(row)
 print("Сумма положительных элементов над главной диагональю:", sum_positive)
 print("Количество положительных элементов над главной диагональю:", count_positive)
