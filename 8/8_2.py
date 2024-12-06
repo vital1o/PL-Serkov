@@ -1,20 +1,18 @@
-N = 4  # размерность матрицы
-M = 5  
-B = np.random.randint(-10, 10, size=(N, M))  # генерируем матрицу с элементами от -10 до 10
+import numpy as np
+
+N = int(input("Введите значение N: "))
+M = int(input("Введите значение M:")) 
+B = np.random.randint(-10, 10, size=(N, M)) 
 
 print("Исходная матрица B:")
 print(B)
 
-# Обрабатываем каждую строку
 for i in range(N):
-    # Находим индексы максимального и минимального элементов в строке
-    max_index = np.argmax(B[i])  # индекс максимального элемента
-    min_index = np.argmin(B[i])  # индекс минимального элемента
+    max_index = np.argmax(B[i]) 
+    min_index = np.argmin(B[i]) 
     
-    # Меняем максимальный элемент с первым элементом строки
     B[i][0], B[i][max_index] = B[i][max_index], B[i][0]
     
-    # Меняем минимальный элемент с последним элементом строки
     B[i][-1], B[i][min_index] = B[i][min_index], B[i][-1]
 
 print("Матрица B после замены:")
