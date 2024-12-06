@@ -1,18 +1,16 @@
 import numpy as np
 
-N = 4  # размерность матрицы
-A = np.random.randint(-10, 10, size=(N, N))  # генерируем матрицу с элементами от -10 до 10
+N = int(input("Введите значение N: ")) 
+A = np.random.randint(-10, 10, size=(N, N))
 
-# Инициализация переменных для суммы и счетчика
 sum_positive = 0
 count_positive = 0
 
-# Проходим по элементам матрицы
 for i in range(N):
-    for j in range(i + 1, N):  # j начинается с i + 1 для нахождения элементов над диагональю
-        if A[i][j] > 0:  # проверяем, положительный ли элемент
-            sum_positive += A[i][j]  # добавляем к сумме
-            count_positive += 1  # увеличиваем счетчик положительных элементов
+    for j in range(i + 1, N):
+        if A[i][j] > 0:
+            sum_positive += A[i][j] 
+            count_positive += 1  
 
 print("Матрица A:")
 print(A)
