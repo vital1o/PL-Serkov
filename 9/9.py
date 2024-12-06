@@ -1,43 +1,34 @@
-def factorial(n):
-    result = 1
-    for i in range(2, n + 1):
-        result *= i
-    return result
+from math import *
 
-def calculate_expression(x, n):
-    x_power_n = x ** n
-    n_fact = factorial(n)
-    result = x_power_n / n_fact
-    print(f"x^n = {x_power_n}")
-    print(f"n! = {n_fact}")
-    return result
+print('№1')
 
-try:
-    x = int(input("Введите натуральное число X: "))
-    n = int(input("Введите натуральное число N: "))
+def f(x,n):
+    return (x**n)/factorial(n)
+a = int(input())
+b = int(input())
+print(f(a,b))
 
-    if x <= 0 or n < 0:
-        raise ValueError("Оба числа должны быть натуральными.")
-    
-    result = calculate_expression(x, n)
-    print(f"Результат выражения x^n / n! для X = {x} и N = {n} равен: {result}")
+print('-'*6)
 
-except ValueError as e:
-    print(f"Ошибка ввода: {e}")
+print('№3')
+def f(n):
+    a = n[::-1]
+    return a
+print(f(input()))
 #block B
 
-def find_max():
-    number = int(input("Введите натуральное число (0 для завершения): "))
-    
-    if number == 0:
-        return -1
-    
-    max_of_rest = find_max()
-    
-    if max_of_rest == -1:
-        return number
-    else:
-        return max(number, max_of_rest)
-        
-max_value = find_max()
-print(f"Наибольшее значение в последовательности: {max_value}")
+def dev(n, divisor):
+  if n <= 1:
+    return False
+  if divisor * divisor > n:
+    return True
+  if n % divisor == 0:
+    return False
+  return dev(n, divisor + 1)
+
+n = int(input("Введите натуральное число n>1: "))
+
+if dev(n, 2):
+  print("Да")
+else:
+  print("Нет")
